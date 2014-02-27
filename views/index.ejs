@@ -1,0 +1,67 @@
+<script src="js/index.js" type="text/javascript"></script>
+
+<div class="row down-20">
+	<div class="col-md-6">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="http://placehold.it/500x400" class="carousel-img" alt="<%- item[0]%>">
+					<div class="carousel-caption">
+						<%- item[0].description %>
+					</div>
+				</div>
+				<div class="item">
+					<img src="http://placehold.it/500x400" class="carousel-img"  alt="<%- item[0]%>">
+					<div class="carousel-caption">
+						<%- item[1].description %>
+					</div>
+				</div>
+				<div class="item">
+					<img src="http://placehold.it/500x400" class="carousel-img" alt="<%- item[0]%>">
+					<div class="carousel-caption">
+						<%- item[2].description %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="row">
+			<div class="index-updates">Recent Updates</div>
+		</div>
+		<div class="col-md-6 index-news">
+			<div class="row index-food">
+				<div class="index-news-title">Food</div>
+				<ul class="news-list">
+					<li class="news-list-odd"><a href="#" class="news-list-link"><%- food[0].restaurant %></a></li>
+					<li class="news-list-even"><a href="#" class="news-list-link"><%- food[1].restaurant %></a></li>
+					<li class="news-list-odd"><a href="#" class="news-list-link"><%- food[2].restaurant %></a></li>
+					<li class="news-list-even"><a href="#" class="news-list-link"><%- food[3].restaurant %></a></li>
+					<li class="news-list-odd"><a href="#" class="news-list-link"><%- food[4].restaurant %></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6 index-news">
+			<div class="row index-life">
+				<div class="index-news-title">Life</div>
+				<ul class="news-list">
+					<ul class="news-list">
+						<li class="news-list-odd"><a href="#" class="news-list-link"><%- life[0].topic %></a></li>
+						<li class="news-list-even"><a href="#" class="news-list-link"><%- life[1].topic %></a></li>
+						<li class="news-list-odd"><a href="#" class="news-list-link"><%- life[2].topic %></a></li>
+						<li class="news-list-even"><a href="#" class="news-list-link"><%- life[3].topic %></a></li>
+						<li class="news-list-odd"><a href="#" class="news-list-link"><%- life[4].topic %></a></li>
+					</ul>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,153 @@
+body {
+	background-color:#F3F0A1;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:black;
+}
+
+.down-20 {
+	margin-top:20px;
+}
+
+.main-logo {
+	font-size:3em;
+}
+
+.layout-body {
+	margin-top:20px;
+	padding:20px;
+	border-radius:5px;
+}
+
+.index-head {
+	border-bottom:thin solid #9CCF31;
+}
+
+.index-logo {
+	text-align:left;
+	font-size:4em;
+	color:#8C2212;
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+}
+
+.index-subheader {
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	text-align:left;
+	padding:5px;
+	color: #DD5525;
+}
+
+.index-welcome {
+	text-align:right;
+	margin-right:5px;
+}
+
+.index-links {
+	margin-top:110px;
+}
+
+.index-links > a {
+	color:inherit;
+}
+
+.index-nav-button {
+	padding:30px 20px 10px 20px;
+	text-align:center;
+	font-weight:bold;
+}
+
+.index-nav-button:active {
+	padding-top:60px;
+}
+
+#home {
+	background-color: #F3F0A1;
+}
+
+#food {
+	background-color:#3C4884
+}
+
+#life {
+	background-color:#E6A45A;
+}
+
+#me {
+	background-color:#8C2212;
+}
+.carousel {
+	border-radius:2px;
+}
+
+.carousel-img {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#carousel-example-generic{
+	height:400px;
+}
+
+.index-food {
+	margin-top:10px;
+	border-right:thick solid #F3F0A1;
+	text-align:right;
+	padding:20px;
+}
+
+.index-life {
+	margin-top:10px;
+	border-left:thick solid #F3F0A1;
+	text-align:left;
+	padding:20px;
+}
+
+.index-news-title {
+	font-size:2em;
+	font-weight:bold;
+	border-bottom: thick solid #3C4884;
+}
+
+.news-list {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+
+.news-list-odd {
+	background-color:#E6A45A;
+	padding:10px;
+	color:black;
+}
+
+.news-list-odd > a {
+	color:white;
+}
+
+.news-list-even {
+	background-color:#DD5525;
+	padding:10px
+}
+
+.news-list-even > a {
+	color:white;
+}
+
+.index-updates {
+	text-align:center;
+	font-weight:bold;
+	font-size:2.7em;
+	color:#8C2212;
+}
+
+.login {
+	margin-top:10px;
+	background-color:white;
+	padding:20px;
+	border:1px solid black;
+	text-align:center;
+}
+
+.login-box {
+	margin-top:10px;
+	margin-bottom:10px;
+}
