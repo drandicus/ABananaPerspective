@@ -1,8 +1,9 @@
-var mongoose = require('mongoose'),
+var express = require('express'),
+	mongoose = require('mongoose'),
 	schema = require('../schema');
 	
-//mongoose.connect('mongodb://diego:deveras@troup.mongohq.com:10095/Project');
 
+var app = express();
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
@@ -16,8 +17,17 @@ exports.login = function(req, res) {
 	var username = req.param('username');
 	var password = req.param('password');
 	
-	res.redirect('/');
+	res.redirect('/admin');
 	
 }
 
 exports.isHuman = validate;
+
+exports.admin = function(req, res){
+	
+	//Check session handling
+	
+	app.set('view options', { layout: "adminlayout.ejs" })
+	res.render('admin');
+	
+}

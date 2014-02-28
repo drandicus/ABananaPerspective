@@ -1,30 +1,34 @@
 var mongoose = require('mongoose'),
 	schema = require('../schema.js');
-	
-//mongoose.connect('mongodb://diego:deveras@troup.mongohq.com:10095/Project');
-
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function callback(){});
 
 var Food = mongoose.model('Food', schema.foodSchema);
+
+var food = [];
+
+var obj = {
+	"Date": "February 28, 2014",
+	"Restaurant": "Batman",
+	"Location": "Batcave",
+	"img": "http://placehold.it/600x200",
+	"Blurb": "Try the Batarangs"
+};
+
+food.push(obj);
 
 exports.findAll = function(req, res) {
 	//Gets all of the Food from the database
 	
-	
-	var food = [];
-	
-	Food.find(function(err, foods) {
+	/*Food.find(function(err, foods) {
 		if (err) {
 			food = null;
 		} else {
 			food = foods;
 		}
-	})
-	
-	res.render('food', food);
+	})*/
+		
+	res.render('food', {
+		food: food
+	});
 }
 
 exports.findById = function(req, res) {
@@ -32,8 +36,10 @@ exports.findById = function(req, res) {
 
 	var food;
 	Food.find({ id:  id}, function callback(){
-	})
+	});
 
 	
-	res.render('topic', food)
+	res.render('topic', {
+		food: food
+	});
 }

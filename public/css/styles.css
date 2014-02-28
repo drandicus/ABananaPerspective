@@ -55,16 +55,13 @@ body {
 	font-weight:bold;
 }
 
-.index-nav-button:active {
-	padding-top:60px;
-}
 
 #home {
 	background-color: #F3F0A1;
 }
 
 #food {
-	background-color:#3C4884
+	background-color:#3C4884;
 }
 
 #life {
@@ -150,4 +147,38 @@ body {
 .login-box {
 	margin-top:10px;
 	margin-bottom:10px;
+}
+
+.food-latest {
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size:3em;
+	color: #3C4884;
+}
+
+.food-item {
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:20px;
+	border-top:3px solid #E6A45A;
+	border-bottom:3px solid #E6A45A;
+	padding-bottom:20px;
+	color:#DD5525;
+}
+
+.food-title {
+	font-size:3.3em;
+	font-weight:bold;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.food-date {
+	text-align:left;
+	margin-top:10px;
+}
+
+.food-blurb {
+	padding:20px;
+	margin-top:10px;
 }

@@ -7,6 +7,10 @@ var express = require('express'),
 var expressLayouts = require('express-ejs-layouts')
 mongoose.connect('mongodb://diego:deveras@troup.mongohq.com:10095/Project');
 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function callback(){});
+
 var app = express();
 
 
@@ -18,29 +22,6 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
 	app.use(express.static(__dirname + '/public'));
-});
-
-
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function callback(){});
-
-var Food = mongoose.model('Food', schema.foodSchema);
-
-var first = new Food ({
-	id: "1",
-	restaurant: "1",
-	location: "1",
-	img: "1",
-	description: "1",
-	rating: 4
-});
-
-first.save(function(err){
-	if (err){
-		console.log('Did not Save');
-	}
 });
 
 app.get('/', function(req, res){
@@ -115,6 +96,7 @@ app.get('/login', function(req, res) {
 	res.render('login');
 })
 
+app.get('/admin', adminHandler.admin);
 app.post('/user-login', adminHandler.login);
 
 
