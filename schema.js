@@ -1,24 +1,28 @@
 var mongoose = require('mongoose');
 
-exports.foodSchema = mongoose.Schema({
-	Date: {type: Date, default: Date.now},
-	Restaurant: String,
-	Location: String,
-	Img: String,
-	Blurb: String,
-	Description: String
-})
+var foodSchema = mongoose.Schema({
+	date: {type: Date, default: Date.now},
+	Restaurant: {type: String, required:true},
+	Location: {type: String, required:true},
+	Img: {type: String, required:true},
+	Blurb: {type: String, required:true},
+	Description: {type: String, required:true}
+});
 
-exports.lifeSchema = mongoose.Schema({
-	id: String,
+ var lifeSchema = mongoose.Schema({
 	topic: String,
-	post: String,
+	post: {type: String},
 	img: String
-})
+});
 
-exports.humanSchema = mongoose.Schema({
+var humanSchema = mongoose.Schema({
 	id: String,
 	username: String,
 	password: String,
 	email: String
-})
+});
+
+
+exports.food = mongoose.model('Food', foodSchema);
+exports.life = mongoose.model('Life', lifeSchema);
+exports.human = mongoose.model('Human', humanSchema);

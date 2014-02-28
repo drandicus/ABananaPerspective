@@ -5,10 +5,6 @@ var express = require('express'),
 
 var app = express();
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function callback(){});
-
 var Human = mongoose.model('Human', schema.humanSchema);
 
 var validate = true;

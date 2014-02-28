@@ -1,6 +1,7 @@
 var express = require('express'),
 	mongoose = require('mongoose'),
 	schema = require('./schema'),
+	lifeHandler = require('./routes/life'),
 	foodHandler = require('./routes/food'),
 	adminHandler = require('./routes/admin');
 
@@ -19,7 +20,8 @@ app.configure(function(){
 	app.set('view engine', 'ejs');
 	app.set('layout', 'layout');
 	app.use(expressLayouts);
-    app.use(express.bodyParser());
+	app.use(express.urlencoded());
+	app.use(express.json());
     app.use(express.methodOverride());
 	app.use(express.static(__dirname + '/public'));
 });
@@ -89,8 +91,6 @@ app.get('/', function(req, res){
 	});
 });
 
-app.get('/food', foodHandler.findAll);
-app.get('/food/:id', foodHandler.findById);
 
 app.get('/login', function(req, res) {
 	res.render('login');
@@ -98,6 +98,14 @@ app.get('/login', function(req, res) {
 
 app.get('/admin', adminHandler.admin);
 app.post('/user-login', adminHandler.login);
+app.get('/food', foodHandler.findAll);
+app.get('/food/:id', foodHandler.findById);
+app.get('/life', lifeHandler.findAll);
+app.get('/life/:id', lifeHandler.findById);
 
+
+app.get('/admin', function(req, res){
+	res.render('admin');
+});
 
 app.listen(8080);

@@ -33,7 +33,7 @@ exports.findAll = function(req, res) {
 }
 
 exports.findById = function(req, res) {
-	var id = req.params.id;
+	var id = req.param('id');
 
 	var food;
 	Food.find({ id:  id}, function callback(){
