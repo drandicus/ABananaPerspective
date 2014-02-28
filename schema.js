@@ -9,7 +9,7 @@ var foodSchema = mongoose.Schema({
 	Description: {type: String, required:true}
 });
 
- var lifeSchema = mongoose.Schema({
+var lifeSchema = mongoose.Schema({
 	topic: String,
 	post: {type: String},
 	img: String
