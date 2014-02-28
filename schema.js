@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
 exports.foodSchema = mongoose.Schema({
-	id: String,
-	restaurant: String,
-	location: String,
-	img: String,
-	description: String,
-	rating: Number
+	Date: {type: Date, default: Date.now},
+	Restaurant: String,
+	Location: String,
+	Img: String,
+	Blurb: String,
+	Description: String
 })
 
 exports.lifeSchema = mongoose.Schema({

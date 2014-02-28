@@ -10,7 +10,8 @@ var obj = {
 	"Restaurant": "Batman",
 	"Location": "Batcave",
 	"img": "http://placehold.it/600x200",
-	"Blurb": "Try the Batarangs"
+	"Blurb": "Try the Batarangs",
+	"Description": ""
 };
 
 food.push(obj);
