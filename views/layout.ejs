@@ -14,8 +14,15 @@
 	<body>
 		<div class="container-fluid">
 			<div class="layout-body">
+			<% if (!admin) { %>
 				<%- include header.ejs %>
-				<%- body %>
+			<% } else { %>
+				<%- include admin-header.ejs %>
+			<% } %>
+			
+			
+			
+			<%- body %>
 			</div>
 		</div>
 	</body>

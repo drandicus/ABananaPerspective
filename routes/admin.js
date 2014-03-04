@@ -5,9 +5,6 @@ var express = require('express'),
 
 var app = express();
 
-var Human = mongoose.model('Human', schema.humanSchema);
-
-var validate = true;
 
 exports.login = function(req, res) {
 	var username = req.param('username');
@@ -17,13 +14,8 @@ exports.login = function(req, res) {
 	
 }
 
-exports.isHuman = validate;
-
 exports.admin = function(req, res){
-	
-	//Check session handling
-	
-	app.set('view options', { layout: "adminlayout.ejs" })
+	console.log('here');
 	res.render('admin');
 	
 }

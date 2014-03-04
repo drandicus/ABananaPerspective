@@ -6,6 +6,7 @@ var Food = mongoose.model('Food', schema.foodSchema);
 var food = [];
 
 var obj = {
+	"id": "1",
 	"Date": "February 28, 2014",
 	"Restaurant": "Batman",
 	"Location": "Batcave",
@@ -28,7 +29,8 @@ exports.findAll = function(req, res) {
 	})*/
 		
 	res.render('food', {
-		food: food
+		food: food,
+		admin: false
 	});
 }
 
@@ -41,6 +43,7 @@ exports.findById = function(req, res) {
 
 	
 	res.render('topic', {
-		food: food
+		food: food,
+		admin: false
 	});
 }

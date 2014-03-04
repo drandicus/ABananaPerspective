@@ -15,19 +15,19 @@
 				<div class="item active">
 					<img src="http://placehold.it/500x400" class="carousel-img" alt="<%- item[0]%>">
 					<div class="carousel-caption">
-						<%- item[0].description %>
+						<%- item.description %>
 					</div>
 				</div>
 				<div class="item">
 					<img src="http://placehold.it/500x400" class="carousel-img"  alt="<%- item[0]%>">
 					<div class="carousel-caption">
-						<%- item[1].description %>
+						<%- item.description %>
 					</div>
 				</div>
 				<div class="item">
 					<img src="http://placehold.it/500x400" class="carousel-img" alt="<%- item[0]%>">
 					<div class="carousel-caption">
-						<%- item[2].description %>
+						<%- item.description %>
 					</div>
 				</div>
 			</div>
@@ -37,30 +37,24 @@
 		<div class="row">
 			<div class="index-updates">Recent Updates</div>
 		</div>
-		<div class="col-md-6 index-news">
-			<div class="row index-food">
-				<div class="index-news-title">Food</div>
-				<ul class="news-list">
-					<li class="news-list-odd"><a href="#" class="news-list-link"><%- food[0].restaurant %></a></li>
-					<li class="news-list-even"><a href="#" class="news-list-link"><%- food[1].restaurant %></a></li>
-					<li class="news-list-odd"><a href="#" class="news-list-link"><%- food[2].restaurant %></a></li>
-					<li class="news-list-even"><a href="#" class="news-list-link"><%- food[3].restaurant %></a></li>
-					<li class="news-list-odd"><a href="#" class="news-list-link"><%- food[4].restaurant %></a></li>
-				</ul>
-			</div>
+		<div class="row index-recent-item col-md-6">
+			<div class="index-announcement">Food</div>
+			<img src="http://placehold.it/200x100">
+			<div class="index-recent-main"><%= food.restaurant%></div>
 		</div>
-		<div class="col-md-6 index-news">
-			<div class="row index-life">
-				<div class="index-news-title">Life</div>
-				<ul class="news-list">
-					<ul class="news-list">
-						<li class="news-list-odd"><a href="#" class="news-list-link"><%- life[0].topic %></a></li>
-						<li class="news-list-even"><a href="#" class="news-list-link"><%- life[1].topic %></a></li>
-						<li class="news-list-odd"><a href="#" class="news-list-link"><%- life[2].topic %></a></li>
-						<li class="news-list-even"><a href="#" class="news-list-link"><%- life[3].topic %></a></li>
-						<li class="news-list-odd"><a href="#" class="news-list-link"><%- life[4].topic %></a></li>
-					</ul>
-				</ul>
+		<div class="row index-recent-item col-md-6" id="lifes">
+			<div class="index-announcement">Life</div>
+			<img src="http://placehold.it/200x100">
+			<div class="index-recent-main"><%= life.topic%></div>
+		</div>
+		
+		<div class="row col-md-12">
+			<div class="index-me">Me</div>
+			<div class="row">
+				<div class="index-me-about col-md-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat suscipit rutrum. Praesent facilisis quis elit sit amet aliquam. Nullam eget hendrerit est. Mauris pharetra eros elit, sit amet porta purus tempor eu.  Sed imperdiet vestibulum urna. Nam eget pulvinar diam. Maecenas id egestas odio. Maecenas nec nulla ut ipsum placerat molestie quis a libero.</div>
+				<div class="col-md-2">
+					<img src="http://placehold.it/100x100">
+				</div>
 			</div>
 		</div>
 	</div>

@@ -26,77 +26,44 @@ app.configure(function(){
 	app.use(express.static(__dirname + '/public'));
 });
 
+var auth = app.use(express.basicAuth(function(user, pass){
+	return (user === 'a' && pass==="a");
+}));
+
 app.get('/', function(req, res){
 
-	var data = [];
-	var counter = 1;
-
-	while (counter < 4) {
-		var img = "/img/carousel";
-		img += "" + counter + ".jpg";
-	
-		var o = {
-			"name": "Hello" + counter,
-			"description":counter,
-			"img":img
-		};
-	
-		data.push(o);
-		counter ++;
+	var data = {
+		'description': "I like pie"
 	}
 
-	var food = [];
-	counter = 0;
-	while (counter < 5) {
-		var o = {
-			"id": counter,
-			"restaurant": counter,
-			"location": counter,
-			"rating": counter
-		};
+	var food = {
+		"restaurant": "Spirals",
+		"blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id consequat risus, tristique condimentum enim. Maecenas eu auctor dui, nec hendrerit ligula."
+	};
 	
-		food.push(o);
-		counter++;
+	var life = {
+		"topic": "Batman and Company",
+		"blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id consequat risus, tristique condimentum enim. Maecenas eu auctor dui, nec hendrerit ligula."
 	}
-
-	var life = [
 	
-		{
-			"id": 0,
-			"topic": "Batman",
-		},
-		{
-			"id": 1,
-			"topic": "Batman",
-		},
-		{
-			"id": 2,
-			"topic": "Batman",
-		},
-		{
-			"id": 3,
-			"topic": "Batman",
-		},
-		{
-			"id": 4,
-			"topic": "Batman",
-		}
-	];
 
 
 	res.render('index', {
 		item: data,
 		food: food,
-		life: life
+		life: life,
+		admin: false
 	});
 });
 
 
 app.get('/login', function(req, res) {
-	res.render('login');
+	res.render('login', {
+		admin:false
+	});
 })
 
-app.get('/admin', adminHandler.admin);
+app.get('/admin', auth, adminHandler.admin);
 app.post('/user-login', adminHandler.login);
 app.get('/food', foodHandler.findAll);
 app.get('/food/:id', foodHandler.findById);
