@@ -2,10 +2,11 @@
 	Latest Post
 </div>
 
-<a href="/food/<%= food[0].id %>">
+<% if(food.length != 0 ) { %>
+<a href="/food/<%= food[0]._id %>">
 	<div class="row">
 		<div class="col-md-12 food-item">
-			<div class="food-date"><%= food[0].Date %></div>
+			<div class="food-date"><%= food[0].date %></div>
 			<div class="food-title"><%= food[0].Restaurant %></div>
 			<img src="<%= food[0].img %>" class="food-image">
 			<div class="food-blurb"><%= food[0].Blurb%></div>
@@ -28,4 +29,6 @@
 			</div>
 		</div>
 	</a>
+<% } %>
+
 <% } %>

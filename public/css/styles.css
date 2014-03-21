@@ -198,3 +198,8 @@ body {
 	padding:20px;
 	margin-top:10px;
 }
+
+.topic-background {
+	height:400px;
+	z-index:-1;
+}

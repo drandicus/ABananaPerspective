@@ -14,7 +14,6 @@ db.once('open', function callback(){});
 
 var app = express();
 
-
 app.configure(function(){
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'ejs');
@@ -25,10 +24,6 @@ app.configure(function(){
     app.use(express.methodOverride());
 	app.use(express.static(__dirname + '/public'));
 });
-
-var auth = app.use(express.basicAuth(function(user, pass){
-	return (user === 'a' && pass==="a");
-}));
 
 app.get('/', function(req, res){
 
@@ -63,7 +58,7 @@ app.get('/login', function(req, res) {
 	});
 })
 
-app.get('/admin', auth, adminHandler.admin);
+app.get('/admin', adminHandler.admin);
 app.post('/user-login', adminHandler.login);
 app.get('/food', foodHandler.findAll);
 app.get('/food/:id', foodHandler.findById);

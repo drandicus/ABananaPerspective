@@ -1,3 +1,4 @@
+<% if(life.length > 0) { %>
 <% for(var i=0; i<10; i++) {%>
 	<div class='row'>
 		<div class="col-md-12 life-item">
@@ -7,4 +8,5 @@
 			<div class="life-blurb"><%= life[i].blurb %></div>
 		</div>
 	</div>
+<% } %>
 <% } %>

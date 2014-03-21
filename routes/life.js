@@ -7,7 +7,8 @@ exports.findAll = function(req, res) {
 		if(err) res.send('ERROR BITCH' + err);
 		
 		res.render('life', {
-			life: life
+			life: life,
+			admin: false
 		});
 	});
 }

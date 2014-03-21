@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var foodSchema = mongoose.Schema({
-	date: {type: Date, default: Date.now},
+	date: {type: Date, default:Date.now, required:true},
 	Restaurant: {type: String, required:true},
-	Location: {type: String, required:true},
-	Img: {type: String, required:true},
+	location: {type: String, required:true},
+	img: {type: String, required:true},
 	Blurb: {type: String, required:true},
 	Description: {type: String, required:true}
 });

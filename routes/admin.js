@@ -15,7 +15,15 @@ exports.login = function(req, res) {
 }
 
 exports.admin = function(req, res){
-	console.log('here');
-	res.render('admin');
+	
+	var auth = app.use(express.basicAuth(function(user, pass){
+		if (user === 'a' && pass==="a") {
+			res.render('admin', {
+				admin:true
+			});
+		}
+	}));
+	
+	
 	
 }
