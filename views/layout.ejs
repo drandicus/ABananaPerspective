@@ -11,19 +11,25 @@
 		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="/bower_components/bootstrap/js/carousel.js"></script>
 	</head>
-	<body>
+	<% if (!admin) { %>
+	<body class="not-body-admin">
 		<div class="container-fluid">
 			<div class="layout-body">
-			<% if (!admin) { %>
 				<%- include header.ejs %>
-			<% } else { %>
-				<%- include admin-header.ejs %>
-			<% } %>
-			
-			
-			
-			<%- body %>
+				<%- body %>
 			</div>
 		</div>
 	</body>
+	<% } else { %>
+	<body>
+		<div class="container-fluid">
+			<% include admin-sidebar.ejs %>
+			<div class="container col-md-offset-2 col-md-9">
+				<div class="layout-body admin-body">
+					<%- body %>
+				</div>
+			</div>
+		</div>
+	</body>
+	<% } %>
 </html>

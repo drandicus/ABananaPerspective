@@ -1,15 +1,14 @@
 body {
-	background-color:#ECD078;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color:black;
 }
 
-.down-20 {
-	margin-top:20px;
-}
-
 .main-logo {
 	font-size:3em;
+}
+
+.not-body-admin {
+	background-color:#ECD078;
 }
 
 .layout-body {
@@ -202,4 +201,51 @@ body {
 .topic-background {
 	height:400px;
 	z-index:-1;
+}
+
+.admin-sidebar {
+	background-color:#222;
+	border-color:#080808;
+	width:90px;
+	height:100%;
+	position:absolute;
+	font-size:0.8em;
+	margin-left:-20px;
+}
+
+.admin-sidebar:hover {
+	width:200px;
+}
+
+
+.admin-sidebar-list {
+	list-style-type:none;
+	overflow:hidden;
+}
+
+.admin-sidebar-button {
+	margin-right:10px;
+}
+
+.admin-sidebar-item{
+	cursor:pointer;
+	background-color:#222;
+	padding-top:10px;
+	padding-top:10px;
+	color:white;
+	font-size:1.3em;
+	margin-top:10px;
+	margin-bottom:40px;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+.admin-sidebar-item:hover{
+	overflow:visible;
+	white-space:normal;
+}
+
+#profile{
+	margin-top:20px;
+	margin-bottom:100px;
 }

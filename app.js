@@ -1,9 +1,10 @@
 var express = require('express'),
 	mongoose = require('mongoose'),
 	schema = require('./schema'),
-	lifeHandler = require('./routes/life'),
-	foodHandler = require('./routes/food'),
-	adminHandler = require('./routes/admin');
+	pass = require('./pass'),
+	lifeHandler = require('./life'),
+	foodHandler = require('./food'),
+	adminHandler = require('./admin');
 
 var expressLayouts = require('express-ejs-layouts')
 mongoose.connect('mongodb://diego:deveras@troup.mongohq.com:10095/Project');
@@ -64,10 +65,5 @@ app.get('/food', foodHandler.findAll);
 app.get('/food/:id', foodHandler.findById);
 app.get('/life', lifeHandler.findAll);
 app.get('/life/:id', lifeHandler.findById);
-
-
-app.get('/admin', function(req, res){
-	res.render('admin');
-});
 
 app.listen(8080);
