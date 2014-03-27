@@ -23,6 +23,7 @@ exports.findById = function(req, res) {
 	var id = req.param('id');
 		
 	Food.find({ _id:  id}, function(err, f){
+		console.log(f)
 		res.render('topic-food', {
 			food: f,
 			admin: false
