@@ -1,0 +1,11 @@
+<div class="row add well">
+	<div class="row">
+		<h1>ADD NEW POST</h1>
+	</div>
+	<form id="add-post" action="add" method="post">
+		<div class="row">
+			<input type="radio" name="type" value="Life Topics">Life Topics</input>
+			<input type="radio" name="type" value="Food Topics" checked>Food Topics</input>
+		</div>
+	</form>
+</div>

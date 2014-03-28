@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-	schema = require('../schema.js');
+	schema = require('./schema');
 
 var Food = schema.food;
 

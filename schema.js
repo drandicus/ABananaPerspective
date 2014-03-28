@@ -40,12 +40,32 @@ var lifeSchema = mongoose.Schema({
 	img: String
 });
 
-var humanSchema = mongoose.Schema({
-	id: String,
-	username: String,
-	password: String,
-	email: String,
-	admin:Boolean
+var userSchema = mongoose.Schema({
+	username: {
+		type: String,
+		required: true
+	},
+	
+	password: {
+		type: String,
+		required: true
+	},
+	
+	salt: {
+		type: String,
+		required: true
+	},
+	
+	email: {
+		type: String,
+		required: true
+	},
+	
+	admin:{
+		type: Boolean,
+		required: true,
+		default: false
+	}
 });
 
 var itemSchema = mongoose.Schema({
@@ -83,4 +103,4 @@ var itemSchema = mongoose.Schema({
 exports.item = mongoose.model('Item', itemSchema);
 exports.food = mongoose.model('Food', restaurantSchema);
 exports.life = mongoose.model('Life', lifeSchema);
-exports.human = mongoose.model('Human', humanSchema);
+exports.user = mongoose.model('User', userSchema);
