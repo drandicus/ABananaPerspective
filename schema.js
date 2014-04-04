@@ -68,7 +68,7 @@ var userSchema = mongoose.Schema({
 	}
 });
 
-var itemSchema = mongoose.Schema({
+var dishSchema = mongoose.Schema({
 	name: {
 		type: String,
 		required: true
@@ -91,16 +91,10 @@ var itemSchema = mongoose.Schema({
 	
 	Price: {
 		type: Number
-	},
-	
-	Rating: {
-		type: Number,
-		required: true
 	}
-	
 });
 
-exports.item = mongoose.model('Item', itemSchema);
+exports.dish = mongoose.model('Dish', dishSchema);
 exports.food = mongoose.model('Food', restaurantSchema);
 exports.life = mongoose.model('Life', lifeSchema);
 exports.user = mongoose.model('User', userSchema);

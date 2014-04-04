@@ -3,13 +3,13 @@
 </div>
 
 <% if(food.length != 0 ) { %>
-<a href="/food/<%= food[0]._id %>">
+<a href="/food/<%= food[l-1]._id %>">
 	<div class="row">
 		<div class="col-md-12 food-item">
-			<div class="food-date"><%= food[0].date %></div>
-			<div class="food-title"><%= food[0].Restaurant %></div>
-			<img src="<%= food[0].img %>" class="food-image">
-			<div class="food-blurb"><%= food[0].Blurb%></div>
+			<div class="food-date"><%= food[l-1].date %></div>
+			<div class="food-title"><%= food[l-1].Restaurant %></div>
+			<img src="<%= food[l-1].img %>" class="food-image">
+			<div class="food-blurb"><%= food[l-1].Blurb%></div>
 		</div>
 	</div>
 </a>
@@ -18,11 +18,11 @@
 	Older Posts
 </div>
 
-<% for (var i=1; i<food.length; i++) { %>
+<% for (var i=l-2; i>-1; i--) { %>
 	<a href="/food/<%= food[i].id %>">
 		<div class="row">
 			<div class="col-md-12 food-item">
-				<div class="food-date"><%= food[i].Date %></div>
+				<div class="food-date"><%= food[i].date %></div>
 				<div class="food-title"><%= food[i].Restaurant %></div>
 				<img src="<%= food[i].img %>" class="food-image">
 				<div class="food-blurb"><%= food[i].Blurb%></div>

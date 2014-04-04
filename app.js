@@ -104,7 +104,9 @@ app.get('/life/:id', lifeHandler.findById);
 app.get('/login', adminHandler.login);
 app.post('/login', adminHandler.loginHandler);
 app.get('/admin', restrict, adminHandler.admin);
-app.get('/add', restrict, adminHandler.add)
-
+app.get('/add', restrict, adminHandler.add);
+app.post('/add_restaurant', restrict, adminHandler.addRestaurant);
+app.get('/add_food/:id', adminHandler.addFoods);
+app.post('/add_food', restrict, adminHandler.addDish);
 
 app.listen(8080);

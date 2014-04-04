@@ -44,17 +44,10 @@ exports.loginHandler = function(req, res) {
 		if (user) {
 			req.session.regenerate(function() {
 				req.session.user = user;
-				req.session.sucess = "Authenticated as " + user.username
-					+ " click to <a href='/logout'>logout</a>"
-					+ " you can now access <a href='/admin'>admin data</a>";
 				res.redirect('/admin'); 
 			})
 		} else {
-		    req.session.error = 'Authentication failed, please check your '
-		        + ' username and password.'
-		        + ' (use "tj" and "foobar")';
 		      res.redirect('login');
-		
 		}
 	});
 }
@@ -74,6 +67,67 @@ exports.add = function(req, res) {
 	});
 }
 
-exports.addPost = function(req, res) {
+exports.addRestaurant = function(req, res) {
 	
+	var Rest = schema.food;
+	var restaurant, loc, blurb, description;
+	
+	if (req.param('restaurant') === null) {
+		restaurant = "";
+	}
+	
+	if (req.param('location') === null) {
+		loc = "";
+	}
+	if (req.param('blurb') === null) {
+		blurb = "";
+	}
+	if (req.param('description') === null) {
+		description = "";
+	}
+	
+
+	
+	var obj = new Rest({
+		Restaurant: req.param('restaurant'),
+		location: req.param('location'),
+		img:"http://placehold.it/600x200",
+		Blurb: req.param('blurb'),
+		Description: req.param('description'),
+	});
+	
+	obj.save(function(err){
+		if (err) {
+			console.log(err);
+		}
+	})
+	
+	var url = "/add_food/" + obj._id;
+	res.redirect(url);
+}
+
+exports.addFoods = function(req, res) {
+	var id = req.param('id');
+	var Restaurant = schema.food;
+	
+	Restaurant.findOne({_id: id}, function(err, r) {
+		if (r) {
+			res.render('add-food', {
+				admin:true,
+				r: r
+			});
+		}
+	})
+}
+
+exports.addDish = function(req, res) {
+	var Dish = schema.dish;
+	var Restaurant = schema.food;
+	var id = req.param('id');
+	
+	Restaurants.findOne({_id:id}, function(err, r){
+		if (r) {
+			
+		}
+	})
 }

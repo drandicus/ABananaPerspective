@@ -1,0 +1,32 @@
+<div class="row add">
+	<form id="add_restaurant" action="add_restaurant" name="add_restaurant" method="post" role="form">
+		<div class="row add-title">
+			Add New Restaurant
+		</div>
+		<div class="well">
+			<div class="form-group">
+				<label for="restaurant">Restaurant Name:</label>
+				<input type="text" id="restaurant" name="restaurant" placeholder="Restaurant Name..." class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label for="location">Location:</label>
+				<input type="text" id="location" name="location" placeholder="Location..." class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label for="description">Description:</label>
+				<textarea id="description" name="description" rows="10" placeholder="What Did You Feel About the Place..." class="form-control" required></textarea>
+			</div>
+			<div class="form-group">
+				<label for="blurb">Blurb:</label>
+				<textarea id="blurb" rows="2" name="blurb" placeholder="Quick Description of the Restaurant..." class="form-control" required></textarea>
+			</div>
+			<div class="form-group">
+				<label for="pics">Import Picture</label>
+				<input type="file" id="pics">
+				<p class="help-block">Insert Text Here</p>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</div>
+	</form>
+</div>
+

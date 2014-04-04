@@ -11,9 +11,11 @@ exports.findAll = function(req, res) {
 			food = null;
 			console.log(err);
 		} else {
+			var l = foods.length;
 			res.render('food', {
 				food: foods,
-				admin: false
+				admin: false,
+				l: l
 			});
 		}
 	});
@@ -23,10 +25,12 @@ exports.findById = function(req, res) {
 	var id = req.param('id');
 		
 	Food.find({ _id:  id}, function(err, f){
-		console.log(f)
-		res.render('topic-food', {
-			food: f,
-			admin: false
-		});
+		if (f) {
+			console.log(f)
+			res.render('topic-food', {
+				food: f,
+				admin: false
+			});
+		}
 	});
 }
