@@ -14,7 +14,9 @@ var app = express();
 var expressLayouts = require('express-ejs-layouts');
 
 
-mongoose.connect('mongodb://diego:deveras@troup.mongohq.com:10095/Project');
+
+
+mongoose.connect('mongodb://Diego:Deveras@oceanic.mongohq.com:10033/Project');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function callback(){});
@@ -107,6 +109,6 @@ app.get('/admin', restrict, adminHandler.admin);
 app.get('/add', restrict, adminHandler.add);
 app.post('/add_restaurant', restrict, adminHandler.addRestaurant);
 app.get('/add_food/:id', adminHandler.addFoods);
-app.post('/add_food', restrict, adminHandler.addDish);
+app.post('/add_dish', restrict, adminHandler.addDish);
 
 app.listen(8080);

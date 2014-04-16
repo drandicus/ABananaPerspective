@@ -123,11 +123,24 @@ exports.addFoods = function(req, res) {
 exports.addDish = function(req, res) {
 	var Dish = schema.dish;
 	var Restaurant = schema.food;
-	var id = req.param('id');
 	
-	Restaurants.findOne({_id:id}, function(err, r){
-		if (r) {
-			
+	var obj = new Dish({
+		name: req.param('item-name'),
+		RestaurantID: req.param('id'),
+		img: "http://placehold.it/200x200",
+		Description: req.param('description'),
+		Price: req.param('price')
+		
+	});
+	
+	obj.save(function(err){
+		if (err) {
+			console.log(err);
+		} else {
+			var url = "/add_food/" + req.param('id');
+			res.redirect(url);
 		}
-	})
+	});
+	
+	
 }
