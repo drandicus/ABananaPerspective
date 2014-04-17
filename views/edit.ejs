@@ -1,0 +1,13 @@
+<div class="row edit-title">
+  Click which Restaurant you want to Edit
+</div>
+
+<% for(var i=0; i<restaurants.length; i++) { %>
+<div class="row">
+  <a href="/edit/<%=restaurants[i]._id%>">
+    <div class="edit-item">
+      <%= restaurants[i].Restaurant %>
+    </div>
+  </a>
+</div>
+<% } %>

@@ -39,14 +39,14 @@ app.use(session());
 app.use(function(req, res, next){
 	var err = req.session.error,
 		msg = req.session.success;
-		
+
 	delete req.session.error;
 	delete req.session.success;
-	
+
 	res.locals.message = '';
 	if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
 	if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
-	
+
 	next();
 });
 
@@ -69,12 +69,12 @@ app.get('/', function(req, res){
 		"restaurant": "Spirals",
 		"blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id consequat risus, tristique condimentum enim. Maecenas eu auctor dui, nec hendrerit ligula."
 	};
-	
+
 	var life = {
 		"topic": "Batman and Company",
 		"blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id consequat risus, tristique condimentum enim. Maecenas eu auctor dui, nec hendrerit ligula."
 	}
-	
+
 
 
 	res.render('index', {
@@ -118,6 +118,8 @@ app.get('/add', restrict, adminHandler.add);
 app.post('/add_restaurant', restrict, adminHandler.addRestaurant);
 app.get('/add_food/:id', adminHandler.addFoods);
 app.post('/add_dish', restrict, adminHandler.addDish);
+app.get('/edit', restrict, adminHandler.edit);
+app.get('/edit/:id', restrict, adminHandler.editItem);
 
 app.get('/me', meHandler.me);
 

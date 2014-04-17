@@ -333,3 +333,13 @@ body {
 .btn-back {
 	margin-bottom:10px;
 }
+
+.edit-title {
+	font-size:1.5em;
+	font-weight:bold;
+}
+
+.edit-item {
+	font-size:1.2em;
+	margin-top:5px;
+}
