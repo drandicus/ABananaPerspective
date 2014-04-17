@@ -149,30 +149,51 @@ exports.editItem = function(req, res) {
 
 exports.editRestaurant = function(req, res) {
 	var id = req.param('id');
-	Food.update({_id:id}, { $set: {
+	Food.findOne({_id:id}, function(err, doc){
 
-		name: req.param('item-name'),
-		RestaurantID: req.param('id'),
-		img: "http://placehold.it/200x200",
-		Description: req.param('description'),
-		Price: req.param('price')
+		doc.Restaurant: req.param('restaurant');
+		doc.location: req.param('location');
+		doc.img:"http://placehold.it/600x200";
+		doc.Blurb: req.param('blurb');
+		doc.Description: req.param('description');
+
+		doc.save(function(err) {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			console.log(doc);
+
+			var Dishes = schema.dish;
+			Dishes.find({RestaurdantID: id}, function(err, dishes){
+					if (err) {
+						console.log(err);
+						return;
+					}
+					res.render('edit-dishes', {
+						admin:true,
+						dishes:dishes,
+						restaurant:doc
+					});
+				});
+
+
+		})
+
+
+	}, { $set: {
+
+
 
 	}}, function(err, restaurant){
-
-		console.log(restaurant);
 		if (err) {
 			console.log(err);
 			return;
 		}
+		console.log(restaurant);
 
 		var Dishes = schema.dish;
-		Dishes.find({RestaurdantID: id}, function(err, dishes){
-			if (dishes.length === 0) {
-				dishes = {
-					
-				};
-			}
-		});
+	/*	*/
 
 	});
 }

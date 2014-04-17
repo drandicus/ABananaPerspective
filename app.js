@@ -120,7 +120,7 @@ app.get('/add_food/:id', adminHandler.addFoods);
 app.post('/add_dish', restrict, adminHandler.addDish);
 app.get('/edit', restrict, adminHandler.edit);
 app.get('/edit/:id', restrict, adminHandler.editItem);
-app.post('/edit_restaurant', restrict, adminHandler.editRestaurant);
+app.post('/edit/edit_restaurant', restrict, adminHandler.editRestaurant);
 
 app.get('/me', meHandler.me);
 
