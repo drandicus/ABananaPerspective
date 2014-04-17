@@ -5,6 +5,7 @@ var express = require('express'),
 var app = express();
 
 var Users = schema.user;
+var Food = schema.food;
 
 exports.login = function(req, res) {
 	res.render('login', {
@@ -116,7 +117,6 @@ exports.addDish = function(req, res) {
 }
 
 exports.edit = function(req, res) {
-	var Food = schema.food;
 	Food.find({}, function(err, foods) {
 		if (err) {
 			console.log(err);
@@ -131,7 +131,7 @@ exports.edit = function(req, res) {
 };
 
 exports.editItem = function(req, res) {
-	var Food = schema.food;
+
 	var id = req.param('id');
 	Food.find({_id:id}, function(err, restaurant){
 		if (err) {
@@ -140,17 +140,39 @@ exports.editItem = function(req, res) {
 		}
 
 		restaurant = restaurant[0];
-
-		var description = restaurant.Description;
-		description.substring(1, description.length-1);
-		restaurant.Description = description;
-
-		console.log(description);
-
-
 		res.render('edit-restaurant', {
 			restaurant: restaurant,
 			admin:true
 		});
 	})
 };
+
+exports.editRestaurant = function(req, res) {
+	var id = req.param('id');
+	Food.update({_id:id}, { $set: {
+
+		name: req.param('item-name'),
+		RestaurantID: req.param('id'),
+		img: "http://placehold.it/200x200",
+		Description: req.param('description'),
+		Price: req.param('price')
+
+	}}, function(err, restaurant){
+
+		console.log(restaurant);
+		if (err) {
+			console.log(err);
+			return;
+		}
+
+		var Dishes = schema.dish;
+		Dishes.find({RestaurdantID: id}, function(err, dishes){
+			if (dishes.length === 0) {
+				dishes = {
+					
+				};
+			}
+		});
+
+	});
+}
