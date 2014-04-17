@@ -1,3 +1,4 @@
+<script src="js/add-food.js"></script>
 <div class="row add">
 	<form id="add_dish" action="/add_dish" name="add_dish" method="post" role="form">
 		<div class="row add-title">
@@ -32,6 +33,24 @@
 </div>
 <div class="row">
 	<a href="/admin">
-		<button type="button" class="btn btn-default btn-back">Done</button>
+		<button type="button" class="btn btn-default btn-back" id="done">Done</button>
 	</a>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">UNSAVED CHANGES</h4>
+      </div>
+      <div class="modal-body">
+        You have Unsaved Information, proceed wisely Christian...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+        <button type="button" class="btn btn-primary" id="save">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
