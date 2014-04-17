@@ -69,6 +69,10 @@ body {
 	color: #fff0c0;
 }
 
+.navbar-nav > li {
+	float:none;
+}
+
 @media (max-width: 767px) {
 	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
 		color: #ecf0f1;
@@ -171,9 +175,7 @@ body {
 
 .login {
 	margin-top:10px;
-	background-color:white;
 	padding:20px;
-	border:1px solid black;
 	text-align:center;
 }
 
@@ -183,11 +185,13 @@ body {
 }
 
 .food-latest {
+	text-align:center;
 	margin-top:10px;
 	margin-bottom:10px;
-	font-size:3em;
+	font-size:3.5em;
+	font-weight:bold;
 	color: #3C4884;
-	border-bottom: 1px solid #3C4884;
+	padding-bottom:20px;
 }
 
 .food-item {

@@ -4,6 +4,7 @@ var express = require('express'),
 	lifeHandler = require('./life'),
 	foodHandler = require('./food'),
 	adminHandler = require('./admin'),
+	meHandler = require('./me'),
 	hash = require('./pass').hash,
 	cookieParser = require('cookie-parser'),
 	bodyParser = require('body-parser'),
@@ -12,7 +13,6 @@ var express = require('express'),
 
 var app = express();
 var expressLayouts = require('express-ejs-layouts');
-
 
 
 
@@ -33,7 +33,7 @@ app.configure(function(){
 });
 
 app.use(bodyParser());
-app.use(cookieParser('shhhh, very secret'));
+app.use(cookieParser('too many dicks on the dance floor'));
 app.use(session());
 
 app.use(function(req, res, next){
@@ -94,6 +94,14 @@ function restrict(req, res, next){
 	}
 }
 
+function hasSession(req, res, next) {
+	if(req.session.user){
+		res.redirect('/admin');
+	}else{
+		next();
+	}
+}
+
 
 
 
@@ -103,12 +111,14 @@ app.get('/food/:id', foodHandler.findById);
 app.get('/life', lifeHandler.findAll);
 app.get('/life/:id', lifeHandler.findById);
 
-app.get('/login', adminHandler.login);
-app.post('/login', adminHandler.loginHandler);
+app.get('/login', hasSession, adminHandler.login);
+app.post('/login-check', adminHandler.loginHandler);
 app.get('/admin', restrict, adminHandler.admin);
 app.get('/add', restrict, adminHandler.add);
 app.post('/add_restaurant', restrict, adminHandler.addRestaurant);
 app.get('/add_food/:id', adminHandler.addFoods);
 app.post('/add_dish', restrict, adminHandler.addDish);
+
+app.get('/me', meHandler.me);
 
 app.listen(8080);
