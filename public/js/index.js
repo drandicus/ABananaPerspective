@@ -1,3 +1,9 @@
 $(document).ready(function() {
-	console.log('hello');
+
+	var images = $('<img>');
+
+	images.on('load', function() {
+		console.log($(this).height());
+	});
+
 })

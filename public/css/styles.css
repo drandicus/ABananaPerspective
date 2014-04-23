@@ -112,6 +112,7 @@ body {
 .carousel-img {
 	margin-left:auto;
 	margin-right:auto;
+	background-size:cover;
 }
 
 #carousel-example-generic{

@@ -151,11 +151,11 @@ exports.editRestaurant = function(req, res) {
 	var id = req.param('id');
 	Food.findOne({_id:id}, function(err, doc){
 
-		doc.Restaurant: req.param('restaurant');
-		doc.location: req.param('location');
-		doc.img:"http://placehold.it/600x200";
-		doc.Blurb: req.param('blurb');
-		doc.Description: req.param('description');
+		doc.Restaurant = req.param('restaurant');
+		doc.location = req.param('location');
+		doc.img  = "http://placehold.it/600x200";
+		doc.Blurb =  req.param('blurb');
+		doc.Description =  req.param('description');
 
 		doc.save(function(err) {
 			if (err) {

@@ -61,10 +61,6 @@ var Lifes = schema.life;
 
 app.get('/', function(req, res){
 
-	var data = {
-		'description': "I like pie"
-	}
-
 	var food = {
 		"restaurant": "Spirals",
 		"blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id consequat risus, tristique condimentum enim. Maecenas eu auctor dui, nec hendrerit ligula."
@@ -76,11 +72,10 @@ app.get('/', function(req, res){
 	}
 
 
-
 	res.render('index', {
-		item: data,
 		food: food,
 		life: life,
+		img:image,
 		admin: false
 	});
 });
